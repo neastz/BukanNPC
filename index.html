@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Generator Moe Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=RocknRoll+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .moe-text {
+      font-family: 'RocknRoll One', 'Yomogi', cursive;
+      font-weight: bold;
+      font-size: 3rem;
+      text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ff66cc, 6px 6px 0 #66ccff;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-800 to-blue-900 text-white min-h-screen flex flex-col items-center justify-center px-4">
+  <h1 class="text-4xl font-bold mb-4">Logo Generator (Moe Style)</h1>
+  <input id="textInput" type="text" placeholder="Ketik Nama Logo Kamu..." class="text-black p-2 rounded mb-4 w-full max-w-md text-center">
+  <div id="logoPreview" class="moe-text">Neastoo.dev</div>
+
+  <script>
+    const input = document.getElementById("textInput");
+    const preview = document.getElementById("logoPreview");
+
+    input.addEventListener("input", () => {
+      preview.textContent = input.value || "Neastoo.dev";
+    });
+  </script>
+</body>
+</html>
