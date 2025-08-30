@@ -9,8 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- DaisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Tailwind Config -->
     <script>
-      // Tailwind config for daisyUI (optional if using the CSS build above)
       window.tailwind = window.tailwind || {};
       tailwind.config = {
         theme: {
@@ -22,28 +23,60 @@
         },
       };
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles -->
     <style>
-      html { scroll-behavior: smooth; }
-      .prose img { border-radius: 12px; }
+      html {
+        scroll-behavior: smooth;
+      }
+      .prose img {
+        border-radius: 12px;
+      }
     </style>
   </head>
   <body class="min-h-screen font-display bg-base-100 text-base-content">
     <!-- Navbar -->
-    <div class="navbar bg-base-200/60 backdrop-blur supports-[backdrop-filter]:bg-base-200/60 sticky top-0 z-50">
+    <div
+      class="navbar bg-base-200/60 backdrop-blur supports-[backdrop-filter]:bg-base-200/60 sticky top-0 z-50"
+    >
       <div class="flex-1">
         <a href="#top" class="btn btn-ghost text-xl">@BukanNPC</a>
       </div>
       <div class="flex-none gap-2">
         <label class="swap swap-rotate">
-          <!-- this hidden checkbox controls the state -->
           <input id="theme-toggle" type="checkbox" />
-          <!-- sun icon -->
-          <svg class="swap-off fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17l-1.41 1.41-1.41-1.41L4.23 15.6 5.64 17zm0-10L4.23 5.6 2.82 7.01l1.41 1.41L5.64 7zM12 4V1h-1v3h1zm7.36 3l1.41-1.41-1.41-1.41L17.95 5.6 19.36 7zM4 13H1v-1h3v1zm16 0h3v-1h-3v1zM12 23v-3h-1v3h1zm6.36-6l1.41 1.41 1.41-1.41-1.41-1.41L18.36 17zM12 7a5 5 0 100 10A5 5 0 0012 7z"/></svg>
-          <!-- moon icon -->
-          <svg class="swap-on fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64 13A9 9 0 1111 2.36 7 7 0 0021.64 13z"/></svg>
+          <!-- Sun icon -->
+          <svg
+            class="swap-off fill-current w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5.64 17l-1.41 1.41-1.41-1.41L4.23 15.6 5.64 17zm0-10L4.23 5.6 
+              2.82 7.01l1.41 1.41L5.64 7zM12 4V1h-1v3h1zm7.36 
+              3l1.41-1.41-1.41-1.41L17.95 5.6 19.36 7zM4 
+              13H1v-1h3v1zm16 0h3v-1h-3v1zM12 
+              23v-3h-1v3h1zm6.36-6l1.41 1.41 
+              1.41-1.41-1.41-1.41L18.36 17zM12 
+              7a5 5 0 100 10A5 5 0 0012 7z"
+            />
+          </svg>
+          <!-- Moon icon -->
+          <svg
+            class="swap-on fill-current w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M21.64 13A9 9 0 1111 2.36 7 7 0 0021.64 13z" />
+          </svg>
         </label>
       </div>
     </div>
@@ -52,48 +85,95 @@
     <section id="top" class="container mx-auto px-4 pt-8">
       <div class="hero rounded-2xl bg-base-200 border border-base-300">
         <div class="hero-content flex-col lg:flex-row gap-8">
-          <img src="https://i.pinimg.com/originals/97/41/f0/9741f0c6151635b29300e6f7656e1644.gif" class="max-w-sm rounded-2xl shadow-2xl" alt="Animated banner" />
+          <img
+            src="https://i.pinimg.com/originals/97/41/f0/9741f0c6151635b29300e6f7656e1644.gif"
+            class="max-w-sm rounded-2xl shadow-2xl"
+            alt="Animated banner"
+          />
           <div>
-            <h1 class="text-4xl font-extrabold leading-tight">Account information</h1>
+            <h1 class="text-4xl font-extrabold leading-tight">
+              Account Information
+            </h1>
             <p class="py-4 opacity-80 max-w-2xl">
-              My goal in creating this GitHub account is to express my ideas about coding. Usually, this is a hobby. I often code Node.js, JavaScript, HTML, CSS, and so on!
+              My goal in creating this GitHub account is to express my ideas
+              about coding. Usually, this is a hobby. I often code Node.js,
+              JavaScript, HTML, CSS, and so on!
             </p>
             <div class="flex flex-wrap gap-2">
               <a href="#skills" class="btn btn-outline">Skills</a>
               <a href="#stats" class="btn btn-outline">Stats</a>
               <a href="#music" class="btn btn-outline">Music</a>
               <a href="#visitors" class="btn btn-outline">Visitors</a>
+              <a href="#projects" class="btn btn-outline">Projects</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Visitors (Collapsible) -->
+    <!-- Visitors -->
     <section id="visitors" class="container mx-auto px-4 pt-10">
-      <div class="collapse collapse-arrow bg-base-200 rounded-2xl border border-base-300">
+      <div
+        class="collapse collapse-arrow bg-base-200 rounded-2xl border border-base-300"
+      >
         <input type="checkbox" checked />
-        <div class="collapse-title text-xl font-semibold text-center">↓ Total Profile Visitors ↓</div>
+        <div class="collapse-title text-xl font-semibold text-center">
+          ↓ Total Profile Visitors ↓
+        </div>
         <div class="collapse-content flex justify-center py-4">
-          <a href="https://www.instagram.com/yusupk._" class="tooltip" data-tip="Follow on Instagram">
-            <img alt="Cute Count" class="rounded-xl shadow" src="https://count.getloli.com/get/@NeofetchNpc?theme=rule34" />
+          <a
+            href="https://www.instagram.com/yusupk._"
+            class="tooltip"
+            data-tip="Follow on Instagram"
+          >
+            <img
+              alt="Cute Count"
+              class="rounded-xl shadow"
+              src="https://count.getloli.com/get/@NeofetchNpc?theme=rule34"
+            />
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Skills / Badges -->
+    <!-- Skills -->
     <section id="skills" class="container mx-auto px-4 pt-10">
       <div class="card bg-base-200 border border-base-300 rounded-2xl">
         <div class="card-body">
           <h2 class="card-title">Tech Stack</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-center">
-            <img src="https://img.shields.io/badge/html%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" alt="HTML badge" class="rounded" />
-            <img src="https://img.shields.io/badge/css%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" alt="CSS badge" class="rounded" />
-            <img src="https://img.shields.io/badge/TypeScript-%233178C6.svg?&style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript badge" class="rounded" />
-            <img src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js badge" class="rounded" />
-            <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript badge" class="rounded" />
-            <img src="https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white" alt="Git badge" class="rounded" />
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-center"
+          >
+            <img
+              src="https://img.shields.io/badge/html%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"
+              alt="HTML badge"
+              class="rounded"
+            />
+            <img
+              src="https://img.shields.io/badge/css%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"
+              alt="CSS badge"
+              class="rounded"
+            />
+            <img
+              src="https://img.shields.io/badge/TypeScript-%233178C6.svg?&style=for-the-badge&logo=typescript&logoColor=white"
+              alt="TypeScript badge"
+              class="rounded"
+            />
+            <img
+              src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white"
+              alt="Node.js badge"
+              class="rounded"
+            />
+            <img
+              src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+              alt="JavaScript badge"
+              class="rounded"
+            />
+            <img
+              src="https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"
+              alt="Git badge"
+              class="rounded"
+            />
           </div>
         </div>
       </div>
@@ -105,38 +185,49 @@
         <div class="card-body items-center text-center">
           <h2 class="card-title">GitHub Profile Summary</h2>
           <figure class="mt-4">
-            <img class="rounded-xl" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=BukanNPC&theme=nightowl" alt="GitHub Summary for BukanNPC" />
+            <img
+              class="rounded-xl"
+              src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=BukanNPC&theme=nightowl"
+              alt="GitHub Summary for BukanNPC"
+            />
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- Music Widgets -->
+    <!-- Music -->
     <section id="music" class="container mx-auto px-4 pt-10 pb-20">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="card bg-base-200 border border-base-300">
           <div class="card-body items-center text-center">
             <h2 class="card-title">Spotify Profile</h2>
-            <img class="rounded-xl" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31clwo7edqwwy7heid576bz6xuue&cover_image=true&theme=natemoo-re&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify widget" />
+            <img
+              class="rounded-xl"
+              src="https://spotify-github-profile.kittinanx.com/api/view?uid=31clwo7edqwwy7heid576bz6xuue&cover_image=true&theme=natemoo-re&show_offline=true&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=true"
+              alt="Spotify widget"
+            />
           </div>
         </div>
         <div class="card bg-base-200 border border-base-300">
           <div class="card-body items-center text-center">
             <h2 class="card-title">Recently Played</h2>
-            <img class="rounded-xl" src="https://spotify-recently-played-readme.vercel.app/api?user=31clwo7edqwwy7heid576bz6xuue&width=600&count=10" alt="Spotify Recently Played" />
+            <img
+              class="rounded-xl"
+              src="https://spotify-recently-played-readme.vercel.app/api?user=31clwo7edqwwy7heid576bz6xuue&width=600&count=10"
+              alt="Spotify Recently Played"
+            />
           </div>
         </div>
       </div>
     </section>
 
-        <!-- Projects Table -->
+    <!-- Projects -->
     <section id="projects" class="container mx-auto px-4 pt-10">
       <div class="card bg-base-200 border border-base-300 rounded-2xl">
         <div class="card-body">
           <h2 class="card-title text-center mb-4">My Projects</h2>
           <div class="overflow-x-auto">
             <table class="table table-zebra w-full">
-              <!-- head -->
               <thead>
                 <tr>
                   <th>#</th>
@@ -146,37 +237,69 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- row 1 -->
                 <tr>
                   <th>1</th>
                   <td>API Service</td>
                   <td>My personal API with various endpoints hosted on Vercel.</td>
                   <td>
-                    <a href="https://api.neastooid.xyz/" target="_blank" class="link link-primary">
-                      api.neastooid.xyz
-                    </a>
+                    <a
+                      href="https://api.neastooid.xyz/"
+                      target="_blank"
+                      class="link link-primary"
+                      >api.neastooid.xyz</a
+                    >
                   </td>
                 </tr>
-                <!-- row 2 -->
                 <tr>
                   <th>2</th>
                   <td>GitHub Repository</td>
                   <td>Source code for my WhatsApp bot built with Node.js.</td>
                   <td>
-                    <a href="https://github.com/NeeasTooID/LinucxMD" target="_blank" class="link link-primary">
-                      GitHub Link
-                    </a>
+                    <a
+                      href="https://github.com/NeeasTooID/LinucxMD"
+                      target="_blank"
+                      class="link link-primary"
+                      >GitHub Link</a
+                    >
                   </td>
                 </tr>
-                <!-- row 3 -->
                 <tr>
                   <th>3</th>
-                  <td>Portfolio</td>
-                  <td>Dark mode portfolio built with Next.js & Tailwind.</td>
+                  <td>Anime Streaming</td>
+                  <td>Website to watch anime with Indonesian subtitles.</td>
                   <td>
-                    <a href="https://your-portfolio-link.vercel.app" target="_blank" class="link link-primary">
-                      Portfolio Site
-                    </a>
+                    <a
+                      href="https://ani.ness.biz.id/"
+                      target="_blank"
+                      class="link link-primary"
+                      >ani.ness.biz.id</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td>File Uploader</td>
+                  <td>Upload and share files on NessID CDN without time limit.</td>
+                  <td>
+                    <a
+                      href="https://up.ness.biz.id/"
+                      target="_blank"
+                      class="link link-primary"
+                      >up.ness.biz.id</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th>5</th>
+                  <td>osu! Profile Signature</td>
+                  <td>Dynamic signature with osu! profile details.</td>
+                  <td>
+                    <a
+                      href="https://osu.ness.biz.id/"
+                      target="_blank"
+                      class="link link-primary"
+                      >osu.ness.biz.id</a
+                    >
                   </td>
                 </tr>
               </tbody>
@@ -186,31 +309,39 @@
       </div>
     </section>
 
-    
     <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300">
+    <footer
+      class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300"
+    >
       <aside>
-        <p>© <span id="year"></span> @BukanNPC — Built with Tailwind CSS & DaisyUI</p>
+        <p>
+          © <span id="year"></span> @BukanNPC — Built with Tailwind CSS &
+          DaisyUI
+        </p>
       </aside>
     </footer>
 
+    <!-- Scripts -->
     <script>
       // Theme toggle
-      const toggle = document.getElementById('theme-toggle');
+      const toggle = document.getElementById("theme-toggle");
       const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
+      const saved = localStorage.getItem("theme");
+
       if (saved) {
-        root.setAttribute('data-theme', saved);
-        toggle.checked = saved !== 'dark';
+        root.setAttribute("data-theme", saved);
+        toggle.checked = saved !== "dark";
       }
-      toggle.addEventListener('change', () => {
-        const next = toggle.checked ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+
+      toggle.addEventListener("change", () => {
+        const next = toggle.checked ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
       });
 
       // Year
-      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
     </script>
   </body>
 </html>
