@@ -296,24 +296,50 @@
       </div>
     </section>
 
+    
     <!-- Footer -->
-    <footer
-      class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300 mt-10"
-    >
-      <aside>
-        <p>© <span id="year"></span> @BukanNPC — Built with Tailwind CSS & DaisyUI</p>
-        <div class="flex gap-4 text-2xl mt-3">
-          <a href="https://github.com/BukanNPC" target="_blank" class="hover:text-primary">🐱</a>
-          <a href="https://instagram.com/" target="_blank" class="hover:text-primary">📷</a>
-          <a href="https://discord.gg/" target="_blank" class="hover:text-primary">💬</a>
-          <a href="https://youtube.com/" target="_blank" class="hover:text-primary">▶️</a>
-        </div>
-      </aside>
-    </footer>
+<footer
+  class="footer footer-center p-10 bg-base-200 text-base-content border-t border-base-300 mt-10"
+>
+  <aside>
+    <p>© <span id="year"></span> @BukanNPC — Built with Tailwind CSS & DaisyUI</p>
+    <div class="flex gap-4 text-2xl mt-3">
+      <!-- GitHub -->
+      <a href="https://github.com/BukanNPC" target="_blank" class="hover:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303..."></path>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/" target="_blank" class="hover:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5C19.55 2 22 4.45..."></path>
+        </svg>
+      </a>
+
+      <!-- Discord -->
+      <a href="https://discord.gg/" target="_blank" class="hover:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.317 4.369a19.791 19.791..."></path>
+        </svg>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/" target="_blank" class="hover:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a2.974 2.974..."></path>
+        </svg>
+      </a>
+    </div>
+  </aside>
+</footer>
+    
 
     <!-- Scripts -->
     <script>
       // Theme toggle
+      document.getElementById("year").textContent = new Date().getFullYear();
       const toggle = document.getElementById("theme-toggle");
       const root = document.documentElement;
       const saved = localStorage.getItem("theme");
