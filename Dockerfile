@@ -3,10 +3,10 @@
 FROM ghcr.io/dockur/windows:latest
 
 # --- Optional defaults (override at runtime with -e / --env) ---
-ENV VERSION="11" \
-    RAM_SIZE="4G" \
-    CPU_CORES="2" \
-    DISK_SIZE="64G" \
+ENV VERSION="10l" \
+    RAM_SIZE="8G" \
+    CPU_CORES="4" \
+    DISK_SIZE="256G" \
     USERNAME="Docker" \
     PASSWORD="admin" \
     LANGUAGE="English" \
