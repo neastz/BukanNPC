@@ -1,38 +1,45 @@
-# Use Dockur Windows as base (published on GHCR)
-# Docs: https://github.com/dockur/windows
-FROM ghcr.io/dockur/windows:latest
+# syntax=docker/dockerfile:1
 
-# --- Optional defaults (override at runtime with -e / --env) ---
-ENV VERSION="10l" \
-    RAM_SIZE="8G" \
-    CPU_CORES="4" \
-    DISK_SIZE="256G" \
-    USERNAME="Docker" \
-    PASSWORD="admin" \
-    LANGUAGE="English" \
-    REGION="en-US" \
-    KEYBOARD="en-US"
+ARG VERSION_ARG="latest"
+FROM scratch AS build-amd64
 
-# --- Optional: copy post-install automation ---
-# Place your installer script at ./oem/install.bat (plus any assets)
-# It will be copied into C:\\OEM and executed automatically at the end of setup.
-COPY oem/ /oem/
+COPY --from=qemux/qemu:7.12 / /
 
-# --- Volumes ---
-# /storage holds the VM disks & state (bind/mount this on run)
-# /data is shared to Windows as \\host.lan\Data
-VOLUME ["/storage", "/data"]
+ARG DEBCONF_NOWARNINGS="yes"
+ARG DEBIAN_FRONTEND="noninteractive"
+ARG DEBCONF_NONINTERACTIVE_SEEN="true"
 
-# --- Network ports ---
-# 8006: built‑in web viewer (for install)
-# 3389: RDP (TCP+UDP)
-EXPOSE 8006 3389/tcp 3389/udp
+RUN set -eu && \
+    apt-get update && \
+    apt-get --no-install-recommends -y install \
+        samba \
+        wimtools \
+        dos2unix \
+        cabextract \
+        libxml2-utils \
+        libarchive-tools \
+        netcat-openbsd && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# No CMD/ENTRYPOINT override: we keep the image defaults from dockur/windows
-# Build:    docker build -t my-windows .
-# Run:      docker run --rm --name windows \
-#             --device=/dev/kvm --device=/dev/net/tun --cap-add NET_ADMIN \
-#             -p 8006:8006 -p 3389:3389/tcp -p 3389:3389/udp \
-#             -v "$PWD/windows:/storage" -v "$PWD/shared:/data" \
-#             -e VERSION=11 -e CPU_CORES=4 -e RAM_SIZE=8G \
-#             my-windows
+COPY --chmod=755 ./src /run/
+COPY --chmod=755 ./assets /run/assets
+
+ADD --chmod=755 https://raw.githubusercontent.com/christgau/wsdd/refs/tags/v0.9/src/wsdd.py /usr/sbin/wsdd
+ADD --chmod=664 https://github.com/qemus/virtiso-whql/releases/download/v1.9.47-0/virtio-win-1.9.47.tar.xz /var/drivers.txz
+
+FROM dockurr/windows-arm:${VERSION_ARG} AS build-arm64
+FROM build-${TARGETARCH}
+
+ARG VERSION_ARG="0.00"
+RUN echo "$VERSION_ARG" > /run/version
+
+VOLUME /storage
+EXPOSE 3389 8006
+
+ENV VERSION="10l"
+ENV RAM_SIZE="8G"
+ENV CPU_CORES="4"
+ENV DISK_SIZE="225G"
+
+ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
